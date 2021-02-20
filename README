@@ -1,0 +1,28 @@
+I. Aloc dinamic un vector de apariții inițializat cu 0 pe fiecare poziție, dupa care,
+în timp ce citesc de la tastatură numerele unul cate unul prin variabila n, cresc
+valoarea aparițiilor de pe poziția n din vector si calculez maximul elementului din
+fișier. La final, parcurg toate numerele de la 0 la maxim si afișez numerele care au
+apărut in fișier împreună cu numărul lor de apariții. Maximul a fost calculat din rațiuni
+de eficienta de timp pentru parcurgerea finala.
+II. Am implementat structura de Hashtable folosind un vector care retine pe fiecare
+poziție cheia (stringul) si valoarea (numărul de aparții), alături de o funcție de
+comparare a cheilor si una de hash. Funcția init_h initializeaza valorile dicționarului,
+in timp ce funcția put încearcă sa pună stringul in indexul generat de funcția de hash.
+Daca poziția este nefolosita, atunci a avut loc prima apariție a stringului, caz in care
+numărul de apariții devine 1, iar in caz contrar verifica daca deja stringul a fost pus
+pe acel index si mărește numărul de apariții. Daca pe acel index se afla deja un alt string,
+cauta prima poziție neocupata libera in dicționar, unde pune stringul. Am folosit un key_copy
+pentru funcția de hash din rațiuni de securitate. In funcția main, parcurg o data șirurile
+de caractere si calculez hmax (numărul de șiruri din fișier), folosit pentru alocarea optima
+a bucket-urilor, dupa care parcurg din nou stringurile si le adaug in dicționar. La final,
+afișez stringul si numărul sau de apariții. 
+III. Funcția bit_representation calculează pentru un numar n reprezentarea sa pe 32 de biți
+pe care o păstrează in vectorul primit ca parametru. Funcția hash primește ca parametru un
+pointer si returnează un număr natural folosit in distribuirea 0-urilor in main. Astfel,
+in implementarea mea am folosit numărul m = 2^11 pentru calcularea aproximativa a numărului
+de elemente unice din fișier. Pentru fiecare element citit, obținem poziția j din vectorul
+M unde vom plasa lungimea secventei de 0 prin shiftarea la dreapta cu 32 - log2m biți a
+indexului obținut prin aplicarea funcției hash. Pentru calcularea acestei secvente, pornim
+din poziția log2m si numaram atâta timp cat nu apare niciun 1 in reprezentarea pe biți. La
+final, M[j] devine maximul dintre vechiul M[j] si numărul de 0-uri calculat anterior.
+Calculam pe rand numărul Z și valoarea E ce aproximeaza numărul de valori distincte din fișier.
